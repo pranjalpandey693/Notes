@@ -1,0 +1,106 @@
+1. Images
+What is it?
+A Docker image is a blueprint for creating containers. Think of it like a recipe that tells Docker how to build and run an application, including the app's code, dependencies, and configurations.
+
+Key Features:
+
+Immutable (can’t be changed once created).
+Stored in registries (like Docker Hub).
+Built using a Dockerfile.
+Example:
+An image for a Python app might include the Python runtime, your code, and any necessary libraries.
+
+2. Containers
+What is it?
+A container is a running instance of a Docker image. It's like baking a cake using the recipe (image); the container is the baked cake you can interact with.
+
+Key Features:
+
+Lightweight and portable.
+Isolated from the host system.
+Can be started, stopped, or deleted without affecting the image.
+Example:
+Running the Python app from the image creates a container that executes your application.
+
+3. Dockerfile
+What is it?
+A Dockerfile is a text file that contains step-by-step instructions to build a Docker image.
+
+Key Features:
+
+Defines the base image (e.g., FROM python:3.10).
+Adds your application code and dependencies.
+Specifies commands to run inside the container.
+Example:
+
+dockerfile
+Copy code
+# Use the official Python image
+FROM python:3.10
+
+# Copy app files into the image
+COPY app/ /app
+
+# Install dependencies
+RUN pip install -r /app/requirements.txt
+
+# Set the default command
+CMD ["python", "/app/main.py"]
+This builds an image for a Python application.
+
+4. Volumes
+What is it?
+A volume is a way to persist data created inside a container so it’s not lost when the container stops or is removed.
+
+Key Features:
+
+Data is stored outside the container's filesystem.
+Allows sharing data between containers or between the host and a container.
+Ideal for databases, logs, or other stateful applications.
+Example:
+Mount a volume to save logs:
+
+bash
+Copy code
+docker run -v /host/logs:/container/logs my-app
+5. Networks
+What is it?
+Docker networks allow containers to communicate with each other or with external systems securely.
+
+Key Features:
+
+Containers in the same network can talk to each other.
+Different network drivers (e.g., bridge, host, overlay) provide flexibility.
+Can isolate groups of containers for security.
+Example:
+Connect two containers:
+
+bash
+Copy code
+docker network create my-network
+docker run --network=my-network container1
+docker run --network=my-network container2
+
+How They Work Together:
+Dockerfile: Defines how to create an image.
+Image: The blueprint for containers.
+Container: A running instance of the image.
+Volumes: Persist container data (e.g., databases, logs).
+Networks: Enable communication between containers or the outside world.
+
+Workflow Example:
+Write a Dockerfile for your app.
+Build an image using the Dockerfile (docker build).
+Run the image to create a container (docker run).
+Attach volumes to save data persistently.
+Use networks to link containers and allow communication.
+
+
+
+
+
+
+
+
+
+
