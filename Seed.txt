@@ -1,0 +1,13 @@
+DSA :- main concept and implementation 
+JS :- interview que theory and code (include html css)
+SQL :- concept and operation
+MERN :- interview que theory and code 
+SYSTEM DESIGN
+
+DOCKER
+KUBERNATES 
+KAFKA
+
+PROJECTS :- 
+
+
