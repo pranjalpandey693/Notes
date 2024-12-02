@@ -109,3 +109,7 @@ When you use the docker pull or docker run commands, Docker pulls the required i
 
 Docker objects
 When you use Docker, you are creating and using images, containers, networks, volumes, plugins, and other objects. This section is a brief overview of some of those objects.
+
+
+VM machines(VMs)
+a VM is an entire operating system with its own kernel, hardware drivers, programs, and applications. Spinning up a VM only to isolate a single application is a lot of overhead.
